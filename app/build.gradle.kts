@@ -30,6 +30,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = "17"
@@ -68,4 +69,6 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx) //viewModelScope
     implementation(libs.androidx.lifecycle.livedata.ktx) //liveData
     implementation(libs.androidx.room.ktx)
+
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
 }

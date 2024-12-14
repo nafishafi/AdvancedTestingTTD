@@ -3,7 +3,6 @@ package com.dicoding.newsapp.data
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
-import com.dicoding.newsapp.BuildConfig
 import com.dicoding.newsapp.data.local.entity.NewsEntity
 import com.dicoding.newsapp.data.local.room.NewsDao
 import com.dicoding.newsapp.data.remote.retrofit.ApiService
@@ -15,7 +14,7 @@ class NewsRepository(
     fun getHeadlineNews(): LiveData<Result<List<NewsEntity>>> = liveData {
         emit(Result.Loading)
         try {
-            val response = apiService.getNews(BuildConfig.API_KEY)
+            val response = apiService.getNews("db874e166f4c473e9132d19a45135274")
             val articles = response.articles
             val newsList = articles.map { article ->
                 NewsEntity(
